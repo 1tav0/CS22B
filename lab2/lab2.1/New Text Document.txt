@@ -1,0 +1,62 @@
+Topics: 
+Introduction to structures
+Structures to classes
+Introduction to classes
+Object oriented design
+
+Use the same format for problem and function headings as lab 1.
+
+      Problem 2.1
+Declare a structure with a type name: Car
+containing:
+
+reportingMark 	  a string of 5 or less upper case characters
+carNumber 	  an int
+kind 	  could be box tank flat or other
+loaded 	  a bool
+destination 	  a string with a destination or the word NONE
+
+Note: A destination is required if the car is loaded. If it is not
+loaded the destination may be either a destination or the word NONE.
+
+Create the following functions:
+
+main
+
+  * Uses new to obtain space for the data structure
+  * Calls the other two functions
+  * Deletes the space obtained using new
+
+input
+
+  * Read all the data from the user
+  * After all the data has been read, put all this data into the structure
+
+output
+
+  * Print the data in a neat format
+
+Put the main function first.
+Use the function names and field names specified above.
+Arrange the functions in the order listed above.
+
+Test your program with the following data:
+
+reportingMark 	  SP
+carNumber 	  34567
+kind 	  box
+loaded 	  true
+destination 	  Salt Lake City
+
+------------------------------------------------------------------------------------------------------------------------------------------
+      Problem 2.2
+Repeat problem 2.1 with the following changes:
+
+Use class rather than struct with the type name:   Car
+Make the data in the class Car public.
+Revise the input so the input function will only read the data from the
+user, and then it will call an additional function named setUpCar which
+will put the data in the object.
+
+Test with the same data.
+

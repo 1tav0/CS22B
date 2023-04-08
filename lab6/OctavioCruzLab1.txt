@@ -1,0 +1,416 @@
+Octavio Cruz
+Professor Yamada
+Lab1
+Sept. 24th, 2018
+
+
+
+
+EXERCISE 2.1 Use the man command with the -k option (in both PC-BSD and Solaris) to display abbreviated
+help on the passwd command. Doing so will give you a screen display similar to that obtained with the whatis command, 
+but it will show all apropos command names that contain the characters passwd.
+
+[ocruzortega@unixlab Lab1]$ man -k passwd
+chpasswd             (8)  - update passwords in batch mode
+fgetpwent_r [getpwent_r] (3)  - get passwd file entry reentrantly
+getpwent_r           (3)  - get passwd file entry reentrantly
+gpasswd              (1)  - administer /etc/group and /etc/gshadow
+htpasswd             (1)  - Manage user files for basic authentication
+lpasswd              (1)  - Change group or user password
+lppasswd             (1)  - add, change, or delete digest passwords
+pam_localuser        (8)  - require users to be listed in /etc/passwd
+pam_passwdqc         (8)  - Password quality-control PAM module
+passwd               (1)  - update user's authentication tokens
+passwd2des [xcrypt]  (3)  - RFS password encryption
+passwd               (5)  - password file
+passwd_selinux       (8)  - Security Enhanced Linux Policy for the passwd processes
+passwd [sslpasswd]   (1ssl)  - compute password hashes
+saslpasswd2          (8)  - set a user's sasl password
+userpasswd           (1)  - A graphical tool to allow users to change their passwords
+yppasswdd_selinux    (8)  - Security Enhanced Linux Policy for the yppasswdd processes
+
+
+EXERCISE 2.2 Use the whatis command (in both PC-BSD and Solaris) to get a brief description of the passwd command 
+shown in Exercise 2.1, and then note the difference between the commands whatis passwd and man -k passwd.
+
+
+[ocruzortega@unixlab Lab1]$ whatis passwd
+passwd               (1)  - update user's authentication tokens
+passwd               (5)  - password file
+passwd [sslpasswd]   (1ssl)  - compute password hashes
+
+
+EXERCISE 2.3 On a PC-BSD system, use the whereis command to locate binary files for the Korn shell, the Bourne shell, 
+the Bourne Again shell, the C shell, and the Z shell. Are any of these shell programs not available on your system?
+
+
+[ocruzortega@unixlab Lab1]$ whereis ksh
+ksh: /bin/ksh /usr/share/man/man1/ksh.1.gz
+[ocruzortega@unixlab Lab1]$ whereis sh
+sh: /bin/sh /usr/share/man/man1p/sh.1p.gz /usr/share/man/man1/sh.1.gz
+[ocruzortega@unixlab Lab1]$ whereis csh
+csh: /bin/csh /etc/csh.login /etc/csh.cshrc /usr/share/man/man1/csh.1.gz
+[ocruzortega@unixlab Lab1]$ whereis bash
+bash: /bin/bash /usr/share/man/man1/bash.1.gz
+[ocruzortega@unixlab Lab1]$ whereis zsh
+zsh:
+(Note- the z shell is not available in our system.)
+
+
+EXERCISE 2.4 Use the whoami command to find your username on the system that you’re using. 
+Then use the who command to see how your username is listed, along with other users of the 
+same system. What is the on-screen format of each user’s listing that you obtained with the 
+who command? Try to identify the information in each field on the same line as your username.
+
+[ocruzortega@unixlab Lab1]$ whoami
+ocruzortega
+[ocruzortega@unixlab Lab1]$ who
+mlodin   pts/1        2018-09-24 19:33 (76.78.101.139)
+kyamada  pts/0        2018-09-24 19:17 (sfs-wifi-dhcp-10-143-180-190.wifi.sfsu.edu)
+imillan1 pts/2        2018-09-24 19:29 (c-67-170-229-132.hsd1.ca.comcast.net)
+ocruzortega pts/4        2018-09-24 18:48 (c-24-6-186-21.hsd1.ca.comcast.net)
+mlodin   pts/5        2018-09-24 19:23 (76.78.101.139)
+dbaquir  pts/6        2018-09-24 19:22 (76.78.101.64)
+mmiranda2 pts/7        2018-09-24 19:27 (76.78.100.201)
+dbaquir  pts/8        2018-09-24 19:38 (76.78.101.64)
+dbaquir  pts/9        2018-09-24 19:01 (76.78.101.64)
+sbarakat2 pts/10       2018-09-24 19:01 (99-106-173-133.lightspeed.sntcca.sbcglobal.net)
+
+
+EXERCISE 2.5 Use the hostname command to find out what host computer you are logged on to. 
+Can you determine from this list whether you are using a stand-alone computer or a networked 
+computer system? Explain how you can know the difference from the list that the host- name command gives you.
+
+[ocruzortega@unixlab Lab1]$ hostname
+unixlab.sfsu.edu
+(using a networked computer system since it is a shared directory)
+
+
+
+EXERCISE 2.6 Use the write command to communicate with a friend who is logged on to the system.
+
+
+[ocruzortega@unixlab Lab1]$ write username
+write: username is not logged in
+[ocruzortega@unixlab Lab1]$ write kyamada
+hi
+
+
+EXERCISE 2.7 Use the alias command to display the nicknames (aliases) of commands in your system, 
+if there are any. If there aren’t any, create a few useful ones for yourself according to what you 
+might use frequently and beneficially as a nicknamed command. Then, in PC-BSD use unalias to remove 
+one or more of them. In Solaris use unalias -a to remove all of the aliases. 
+After you have unaliased all the defaults or defined aliases, how do you reinstate them? 
+
+
+[ocruzortega@unixlab Lab1]$ alias
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias vi='vim'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+[ocruzortega@unixlab Lab1]$ alias dir='ls -la\*'
+[ocruzortega@unixlab Lab1]$ alias
+alias dir='ls -la\*'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias vi='vim'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+[ocruzortega@unixlab Lab1]$ alias rename='mv'
+[ocruzortega@unixlab Lab1]$ alias
+alias dir='ls -la\*'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias rename='mv'
+alias vi='vim'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+[ocruzortega@unixlab Lab1]$ alias page='more'
+[ocruzortega@unixlab Lab1]$ alias
+alias dir='ls -la\*'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias page='more'
+alias rename='mv'
+alias vi='vim'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+use unalias to remove one or more of them
+
+[ocruzortega@unixlab Lab1]$ alias
+alias dir='ls -la\*'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias page='more'
+alias rename='mv'
+alias vi='vim'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+[ocruzortega@unixlab Lab1]$ unalias ls
+[ocruzortega@unixlab Lab1]$ alias
+alias dir='ls -la\*'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias page='more'
+alias rename='mv'
+alias vi='vim'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+use unalias -a to remove all of the aliase
+
+[ocruzortega@unixlab Lab1]$ unalias -a
+[ocruzortega@unixlab Lab1]$ alias
+[ocruzortega@unixlab Lab1]$
+
+
+
+EXERCISE 2.8 Display the contents of the /etc/passwd file on your system to determine how 
+many users can log on to the system.
+
+marylim:x:912214256:912214256:Mary S Lim:/unixlab/marylim:/bin/bash
+tphelps:x:918810820:918810820:Tyler Austin Yuhashi Phelps:/unixlab/tphelps:/bin/bash
+tlugo:x:918828318:918828318:Thomas Lugo:/unixlab/tlugo:/bin/bash
+aaguirre7:x:913860576:913860576:Allison Aquirre:/unixlab/aaguirre7:/bin/bash
+aureena:x:906733014:906733014:Aureen Buenaflor Almario:/unixlab/aureena:/bin/bash
+ppatil:x:916437111:916437111:Priti Patil:/unixlab/ppatil:/bin/bash
+mgayle:x:918828929:918828929:Marlon Gayle:/unixlab/mgayle:/bin/bash
+lolesen:x:920009165:920009165:Louise Vesterlund Olesen:/unixlab/lolesen:/bin/bash
+amadsen:x:920011648:920011648:Anne Bolvig Madsen:/unixlab/amadsen:/bin/bash
+aalshaer1:x:918677531:918677531:Ahmed M Alshaer:/unixlab/aalshaer1:/bin/bash
+tganbat:x:918744988:918744988:Tselmeg Ganbat:/unixlab/tganbat:/bin/bash
+cteresko:x:918656003:918656003:Claire Elizabeth Teresko:/unixlab/cteresko:/bin/bash
+pkrinks:x:917531750:917531750:Paige Nicole Krinks:/unixlab/pkrinks:/bin/bash
+(each line represents a user [many more this is just a few lines])
+
+
+
+EXERCISE 2.10 Using the man command illustrated in 2.4.5, read the manual pages 
+for each shell listed in Table 2.4 that is on your system.
+
+[ocruzortega@unixlab Lab1]$ man rc
+No manual entry for rc
+[ocruzortega@unixlab Lab1]$ man sh
+BASH(1)                                                                BASH(1)
+
+NAME
+       bash - GNU Bourne-Again SHell
+
+SYNOPSIS
+       bash [options] [file]
+
+COPYRIGHT
+       Bash is Copyright (C) 1989-2009 by the Free Software Foundation, Inc.
+
+DESCRIPTION
+       Bash  is an sh-compatible command language interpreter that executes commands read from the standard input or from a
+       file.  Bash also incorporates useful features from the Korn and C shells (ksh and csh).
+
+       Bash is intended to be a conformant implementation of the Shell and Utilities portion of the IEEE  POSIX  specifica-
+       tion (IEEE Standard 1003.1).  Bash can be configured to be POSIX-conformant by default.
+
+OPTIONS
+       In  addition  to  the  single-character shell options documented in the description of the set builtin command, bash
+       interprets the following options when it is invoked:
+
+       -c string If the -c option is present, then commands are read from string.  If there are arguments after the string,
+                 they are assigned to the positional parameters, starting with $0.
+       -i        If the -i option is present, the shell is interactive.
+       -l        Make bash act as if it had been invoked as a login shell (see INVOCATION below).
+       -r        If the -r option is present, the shell becomes restricted (see RESTRICTED SHELL below).
+       -s        If  the  -s  option  is present, or if no arguments remain after option processing, then commands are read
+                 from the standard input.  This option allows the positional parameters to be set when invoking an interac-
+                 tive shell.
+       -D        A  list  of  all  double-quoted  strings  preceded  by $ is printed on the standard output.  These are the
+                 strings that are subject to language translation when the current locale is not C or POSIX.  This  implies
+                 the -n option; no commands will be executed.
+       [-+]O [shopt_option]
+                 shopt_option is one of the shell options accepted by the shopt builtin (see SHELL BUILTIN COMMANDS below).
+                 If shopt_option is present, -O sets the value of that option; +O unsets it.  If shopt_option is  not  sup-
+                 plied, the names and values of the shell options accepted by shopt are printed on the standard output.  If
+:
+
+[ocruzortega@unixlab Lab1]$ man csh
+TCSH(1)                                                                TCSH(1)
+
+NAME
+       tcsh - C shell with file name completion and command line editing
+
+SYNOPSIS
+       tcsh [-bcdefFimnqstvVxX] [-Dname[=value]] [arg ...]
+       tcsh -l
+
+DESCRIPTION
+       tcsh  is  an enhanced but completely compatible version of the Berkeley
+       UNIX C shell, csh(1).  It is a command language interpreter usable both
+       as an interactive login shell and a shell script command processor.  It
+       includes a command-line editor  (see  The  command-line  editor),  pro-
+       grammable  word  completion (see Completion and listing), spelling cor-
+       rection (see Spelling correction), a  history  mechanism  (see  History
+       substitution),  job  control  (see  Jobs) and a C-like syntax.  The NEW
+       FEATURES section describes major  enhancements  of  tcsh  over  csh(1).
+       Throughout  this  manual,  features  of  tcsh  not found in most csh(1)
+       implementations (specifically, the 4.4BSD csh) are labeled with  ‘(+)’,
+       and features which are present in csh(1) but not usually documented are
+       labeled with ‘(u)’.
+
+[ocruzortega@unixlab Lab1]$ man bash
+BASH(1)                                                                BASH(1)
+
+NAME
+       bash - GNU Bourne-Again SHell
+
+SYNOPSIS
+       bash [options] [file]
+
+COPYRIGHT
+       Bash is Copyright (C) 1989-2009 by the Free Software Foundation, Inc.
+
+DESCRIPTION
+       Bash  is  an  sh-compatible  command language interpreter that executes
+       commands read from the standard input or from a file.  Bash also incor-
+       porates useful features from the Korn and C shells (ksh and csh).
+
+       Bash  is  intended  to  be a conformant implementation of the Shell and
+       Utilities portion  of  the  IEEE  POSIX  specification  (IEEE  Standard
+       1003.1).  Bash can be configured to be POSIX-conformant by default.
+
+OPTIONS
+       In  addition  to  the  single-character shell options documented in the
+       description of the set builtin command, bash interprets  the  following
+:
+
+[ocruzortega@unixlab Lab1]$ man zsh
+No manual entry for zsh
+[ocruzortega@unixlab Lab1]$ man ksh
+KSH(1)                                                                  KSH(1)
+
+NAME
+       ksh,  rksh,  pfksh  - KornShell, a standard/restricted command and pro-
+       gramming language
+
+SYNOPSIS
+       ksh [ ±abcefhiknoprstuvxBCDP ] [ -R file ] [ ±o option ] ... [  -  ]  [
+       arg ... ]
+
+DESCRIPTION
+       Ksh  is  a command and programming language that executes commands read
+       from a terminal or a file.  Rksh is a restricted version of the command
+       interpreter  ksh;  it is used to set up login names and execution envi-
+       ronments whose capabilities are more controlled than those of the stan-
+       dard  shell.   Rpfksh  is a profile shell version of the command inter-
+       preter ksh; it is used to to execute commands with the attributes spec-
+       ified by the user’s profiles (see pfexec(1)).  See Invocation below for
+       the meaning of arguments to the shell.
+
+   Definitions.
+       A metacharacter is one of the following characters:
+
+[ocruzortega@unixlab Lab1]$ man tcsh
+TCSH(1)                                                                TCSH(1)
+
+NAME
+       tcsh - C shell with file name completion and command line editing
+
+SYNOPSIS
+       tcsh [-bcdefFimnqstvVxX] [-Dname[=value]] [arg ...]
+       tcsh -l
+
+DESCRIPTION
+       tcsh  is  an enhanced but completely compatible version of the Berkeley
+       UNIX C shell, csh(1).  It is a command language interpreter usable both
+       as an interactive login shell and a shell script command processor.  It
+       includes a command-line editor  (see  The  command-line  editor),  pro-
+       grammable  word  completion (see Completion and listing), spelling cor-
+       rection (see Spelling correction), a  history  mechanism  (see  History
+       substitution),  job  control  (see  Jobs) and a C-like syntax.  The NEW
+       FEATURES section describes major  enhancements  of  tcsh  over  csh(1).
+       Throughout  this  manual,  features  of  tcsh  not found in most csh(1)
+       implementations (specifically, the 4.4BSD csh) are labeled with  ‘(+)’,
+       and features which are present in csh(1) but not usually documented are
+       labeled with ‘(u)’.
+
+
+EXERCISE 2.11 At the default login shell prompt for your system, type set | more
+and then press <Enter>. What is displayed on your screen? Identify and list the 
+settings for all the environment variables shown in Table 2.6.
+
+[ocruzortega@unixlab Lab1]$ set | more
+BASH=/bin/bash
+BASHOPTS=checkwinsize:cmdhist:expand_aliases:extquote:force_fignore:hostcomplete
+:interactive_comments:login_shell:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_LINENO=()
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="4" [1]="1" [2]="2" [3]="2" [4]="release" [5]="x86_64-redhat-
+linux-gnu")
+BASH_VERSION='4.1.2(2)-release'
+COLORS=/etc/DIR_COLORS
+COLUMNS=80
+CVS_RSH=ssh
+DIRSTACK=()
+DISPLAY=localhost:10.0
+EUID=918512808
+GROUPS=()
+G_BROKEN_FILENAMES=1
+HISTCONTROL=ignoredups
+HISTFILE=/unixlab/ocruzortega/.bash_history
+HISTFILESIZE=1000
+(more if *Enter* is pressed)
+
+
+EXERCISE 2.12 At the shell prompt, type csh or bash depending on your default system
+login shell, and then press <Enter>. Next, type setenv | more and then press <Enter>. 
+Identify and list the settings for all the environment variables shown in Table 2.6.
+
+[ocruzortega@unixlab Lab1]$ csh
+[ocruzortega@unixlab Lab1]$ setenv | more
+HOSTNAME=unixlab.sfsu.edu
+SHELL=/bin/bash
+TERM=xterm
+HISTSIZE=1000
+SSH_CLIENT=24.6.186.21 58722 22
+QTDIR=/usr/lib64/qt-3.3
+QTINC=/usr/lib64/qt-3.3/include
+SSH_TTY=/dev/pts/0
+USER=ocruzortega
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd
+=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;4
+2:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:
+*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:
+*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31
+:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01
+;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bm
+p=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:
+*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=
+01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*
+.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;
+35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv
+=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.e
+mf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:
+*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=
+01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:
+PATH=/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbi
+n:/sbin:/opt/dell/srvadmin/bin:/unixlab/ocruzortega/bin
+MAIL=/var/spool/mail/ocruzortega
+PWD=/unixlab/ocruzortega/Engr212Tu/Lab1
+LANG=en_US.UTF-8
+HISTCONTROL=ignoredups
+HOME=/unixlab/ocruzortega
+SHLVL=3
+LOGNAME=ocruzortega
+CVS_RSH=ssh
+QTLIB=/usr/lib64/qt-3.3/lib
+SSH_CONNECTION=24.6.186.21 58722 130.212.10.108 22
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+DISPLAY=localhost:10.0
+G_BROKEN_FILENAMES=1
+_=/bin/csh
+HOSTTYPE=x86_64-linux
+(more if *Enter* is pressed)
+
+

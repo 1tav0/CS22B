@@ -1,0 +1,104 @@
+Topics: new, delete, string class
+For all assignments in CIS 22B, provide a heading comment at the top using the following format:
+
+/*
+Fred Flintstone
+Spring 1984
+Lab 1
+Problem 0.0.0
+Description of problem:
+a few lines describing input, activity, and output of the program
+*/
+
+Each function except main should have a function header similar to this
+example:
+
+/* ******************** getSize ********************
+asks user for size
+size saved in calling function via reference parameter
+*/
+
+Problem1.1
+Write a program containing the following functions:
+main - calls the other functions; otherwise does nothing
+getSize - which asks the user how many strings they want
+getSpace - which gets an array in the heap of the size requested by the user
+inputData - which allows the user to input the strings and stores them
+in the array
+printData - which prints all the strings, one string per line
+destroy - which returns all the space to the heap
+
+All of these functions, except main, shall have a return type of void.
+Put the main function first.
+Use the function names specified above.
+Arrange the functions in the order listed above.
+
+
+
+
+
+
+
+Problem 1.2
+
+Write one program containing all these string exercises.
+
+        Exercise 1.2.1
+
+Read a string from the user into a string named string1.
+Test it with the data: Good morning
+Print the following heading and the data contained in string1:
+Exercise 1
+Good morning
+
+
+        Exercise 1.2.2
+
+Create a new string named string2 containing the contents from string1.
+Append the following text to the end of string 2.
+ sleepy heads
+(Note that there is a space before sleepy.)
+Print the following heading and the data contained in string2:
+Exercise 2
+Good morning sleepy heads
+
+
+        Exercise 1.2.3
+
+Create string3 with an initial value of:
+bellow cello fellow hello mellow Novello Othello pillow Rollo solo yellow
+Find the location of the first h in string3
+Print the following heading and the location found in string3:
+Exercise 3
+20
+
+
+        Exercise 1.2.4
+
+Create an empty string named string4.
+Copy string3 into string4.
+Using the location found in exercise 3,
+change the first h into J
+Print the following heading and the data contained in string4:
+Exercise 4
+bellow cello fellow Jello mellow Novello Othello pillow Rollo solo yellow
+
+
+        Exercise 1.2.5
+
+Create a copy of string3 named string5.
+Use the find_last_of member function to find the position of the last  l
+Print the following heading and the position of the last  l
+Exercise 5
+69
+
+
+        Exercise 1.2.6
+
+Create a new string named string6 containing the contents from string3.
+Using the position of the last  l found in exercise 5, erase all
+characters from string6 following the last  l
+Print the following heading and the data contained in string6:
+Exercise 6
+bellow cello fellow hello mellow Novello Othello pillow Rollo solo yell
+
